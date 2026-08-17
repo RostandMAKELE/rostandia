@@ -6,62 +6,22 @@
 <title>RostandIA — Services IA pour petites entreprises à Pointe-Noire</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
   body { font-family: Arial, Helvetica, sans-serif; color: #333; }
 
-  /* NAVIGATION */
-  nav {
+  header {
     background-color: #1B3A5C;
     color: white;
-    padding: 18px 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+    padding: 20px 40px;
   }
-  nav .logo {
-    font-size: 20px;
+  header .logo {
+    font-size: 22px;
     font-weight: bold;
   }
-  nav .nav-links {
-    display: flex;
-    gap: 28px;
-    list-style: none;
-  }
-  nav .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 14px;
-    opacity: 0.9;
-    transition: opacity 0.2s;
-  }
-  nav .nav-links a:hover {
-    opacity: 1;
-    text-decoration: underline;
-  }
-  .nav-cta {
-    background-color: #4CAF7D;
-    color: white;
-    padding: 9px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: bold;
-    transition: background-color 0.2s;
-  }
-  .nav-cta:hover {
-    background-color: #3D9066;
-  }
-  /* Menu mobile (simple, sans JS) */
-  .menu-toggle { display: none; }
 
-  /* HERO */
   .hero {
     background-color: #F0F4F8;
     text-align: center;
-    padding: 90px 24px;
+    padding: 80px 24px;
   }
   .hero h1 {
     color: #1B3A5C;
@@ -74,7 +34,6 @@
     margin-bottom: 32px;
   }
   .btn {
-    display: inline-block;
     background-color: #1B3A5C;
     color: white;
     padding: 16px 32px;
@@ -82,20 +41,16 @@
     border: none;
     font-size: 16px;
     cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.2s, transform 0.15s;
   }
   .btn:hover {
     background-color: #14304A;
-    transform: translateY(-2px);
   }
 
-  /* SERVICES */
   .services {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    padding: 70px 40px;
+    padding: 60px 40px;
     max-width: 1100px;
     margin: 0 auto;
   }
@@ -104,11 +59,6 @@
     border-radius: 12px;
     padding: 28px;
     text-align: center;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  .service-card:hover {
-    box-shadow: 0 8px 20px rgba(27, 58, 92, 0.12);
-    transform: translateY(-4px);
   }
   .service-card h3 {
     color: #1B3A5C;
@@ -120,17 +70,15 @@
     font-size: 15px;
   }
 
-  h2.section-title {
+  .steps {
+    background-color: #F0F4F8;
+    padding: 60px 40px;
+  }
+  .steps h2, .portfolio h2, .about h2 {
     text-align: center;
     color: #1B3A5C;
     font-size: 24px;
     margin-bottom: 36px;
-  }
-
-  /* STEPS */
-  .steps {
-    background-color: #F0F4F8;
-    padding: 70px 40px;
   }
   .steps-grid {
     display: grid;
@@ -165,9 +113,8 @@
     font-size: 14px;
   }
 
-  /* PORTFOLIO */
   .portfolio {
-    padding: 70px 40px;
+    padding: 60px 40px;
     max-width: 1100px;
     margin: 0 auto;
   }
@@ -180,11 +127,6 @@
     border: 1px solid #ddd;
     border-radius: 12px;
     padding: 24px;
-    transition: box-shadow 0.2s, transform 0.2s;
-  }
-  .portfolio-card:hover {
-    box-shadow: 0 8px 20px rgba(27, 58, 92, 0.12);
-    transform: translateY(-4px);
   }
   .portfolio-card .tag {
     display: inline-block;
@@ -205,10 +147,9 @@
     font-size: 14px;
   }
 
-  /* ABOUT */
   .about {
     background-color: #F0F4F8;
-    padding: 70px 40px;
+    padding: 60px 40px;
     text-align: center;
   }
   .about p {
@@ -219,40 +160,6 @@
     line-height: 1.7;
   }
 
-  /* CONTACT */
-  .contact {
-    padding: 70px 40px;
-    text-align: center;
-  }
-  .contact p {
-    color: #444;
-    font-size: 15px;
-    margin-bottom: 28px;
-  }
-  .contact-links {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    border: 1.5px solid #1B3A5C;
-    color: #1B3A5C;
-    padding: 12px 22px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-size: 14px;
-    transition: background-color 0.2s, color 0.2s;
-  }
-  .contact-btn:hover {
-    background-color: #1B3A5C;
-    color: white;
-  }
-
-  /* FOOTER */
   footer {
     background-color: #1B3A5C;
     color: white;
@@ -260,19 +167,11 @@
     padding: 24px;
     font-size: 14px;
   }
-  footer a {
-    color: white;
-  }
 
-  /* RESPONSIVE */
-  @media (max-width: 800px) {
-    nav .nav-links {
-      display: none;
-    }
-    .services, .steps-grid, .portfolio-grid {
+  @media (max-width: 700px) {
+    .services {
       grid-template-columns: 1fr;
-      padding-left: 20px;
-      padding-right: 20px;
+      padding: 40px 20px;
     }
     .hero h1 {
       font-size: 24px;
@@ -285,25 +184,17 @@
 </head>
 <body>
 
-  <nav>
+  <header>
     <span class="logo">RostandIA</span>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#comment-ca-marche">Comment ça marche</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#a-propos">À propos</a></li>
-    </ul>
-    <a href="#contact" class="nav-cta">Contact</a>
-  </nav>
+  </header>
 
-  <section class="hero" id="accueil">
+  <section class="hero">
     <h1>Vos idées, transformées en outils concrets grâce à l'IA</h1>
     <p>Contenu, sites web et automatisation pour les petites entreprises de Pointe-Noire.</p>
-    <a href="https://wa.me/242065630787?text=Bonjour%2C%20je%20suis%20int%C3%A9ress%C3%A9%20par%20vos%20services%20RostandIA" class="btn" target="_blank">Demander un premier échange gratuit</a>
+    <button class="btn">Demander un premier échange gratuit</button>
   </section>
 
-  <section class="services" id="services">
-    <h2 class="section-title">Nos services</h2>
+  <section class="services">
     <div class="service-card">
       <h3>Création de contenu</h3>
       <p>Posts Instagram/Facebook, calendriers de publication et textes de vente pensés pour donner envie d'acheter, sans y passer vos soirées.</p>
@@ -318,8 +209,8 @@
     </div>
   </section>
 
-  <section class="steps" id="comment-ca-marche">
-    <h2 class="section-title">Comment ça marche</h2>
+  <section class="steps">
+    <h2>Comment ça marche</h2>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-number">1</div>
@@ -339,8 +230,8 @@
     </div>
   </section>
 
-  <section class="portfolio" id="portfolio">
-    <h2 class="section-title">Exemples de travaux</h2>
+  <section class="portfolio">
+    <h2>Exemples de travaux</h2>
     <div class="portfolio-grid">
       <div class="portfolio-card">
         <span class="tag">Site web</span>
@@ -355,22 +246,13 @@
     </div>
   </section>
 
-  <section class="about" id="a-propos">
-    <h2 class="section-title">À propos</h2>
+  <section class="about">
+    <h2>À propos</h2>
     <p>Je me suis formé à l'utilisation professionnelle de l'intelligence artificielle pour aider les petites entreprises de Pointe-Noire à gagner du temps et à se rendre visibles en ligne. RostandIA est né de cette envie : rendre ces outils accessibles, sans jargon technique et à un tarif adapté aux réalités locales.</p>
   </section>
 
-  <section class="contact" id="contact">
-    <h2 class="section-title">Contact</h2>
-    <p>Discutons de votre projet, sans engagement.</p>
-    <div class="contact-links">
-      <a href="https://wa.me/242065630787" class="contact-btn" target="_blank">📱 WhatsApp</a>
-      <a href="tel:+242044780071" class="contact-btn">📞 Appeler</a>
-    </div>
-  </section>
-
   <footer>
-    RostandIA — Pointe-Noire · <a href="https://wa.me/242065630787" target="_blank">WhatsApp</a> · <a href="tel:+242044780071">Appeler</a>
+    RostandIA — Pointe-Noire · 065630787 / 044780071
   </footer>
 
 </body>
