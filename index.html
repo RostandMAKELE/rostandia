@@ -1,259 +1,67 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RostandIA — Services IA pour petites entreprises à Pointe-Noire</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: Arial, Helvetica, sans-serif; color: #333; }
+RostandIA
+Services
+Comment ça marche
+Portfolio
+Galerie
+À propos
+Contact
+Vos idées, transformées en outils concrets grâce à l'IA
+Contenu, sites web et automatisation pour les petites entreprises de Pointe-Noire.
 
-  header {
-    background-color: #1B3A5C;
-    color: white;
-    padding: 20px 40px;
-  }
-  header .logo {
-    font-size: 22px;
-    font-weight: bold;
-  }
+Demander un premier échange gratuit
+Nos services
+Création de contenu
+Posts Instagram/Facebook, calendriers de publication et textes de vente pensés pour donner envie d'acheter, sans y passer vos soirées.
 
-  .hero {
-    background-color: #F0F4F8;
-    text-align: center;
-    padding: 80px 24px;
-  }
-  .hero h1 {
-    color: #1B3A5C;
-    font-size: 32px;
-    margin-bottom: 16px;
-  }
-  .hero p {
-    color: #444444;
-    font-size: 18px;
-    margin-bottom: 32px;
-  }
-  .btn {
-    background-color: #1B3A5C;
-    color: white;
-    padding: 16px 32px;
-    border-radius: 8px;
-    border: none;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  .btn:hover {
-    background-color: #14304A;
-  }
+Création de sites web
+Un site simple et moderne qui présente votre activité, vos services et vos coordonnées, accessible depuis un ordinateur comme un téléphone.
 
-  .services {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    padding: 60px 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .service-card {
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 28px;
-    text-align: center;
-  }
-  .service-card h3 {
-    color: #1B3A5C;
-    margin-bottom: 12px;
-    font-size: 18px;
-  }
-  .service-card p {
-    color: #666;
-    font-size: 15px;
-  }
+Automatisation
+Des petits outils qui calculent, trient ou répondent automatiquement à votre place, pour vous faire gagner un temps précieux chaque semaine.
 
-  .steps {
-    background-color: #F0F4F8;
-    padding: 60px 40px;
-  }
-  .steps h2, .portfolio h2, .about h2 {
-    text-align: center;
-    color: #1B3A5C;
-    font-size: 24px;
-    margin-bottom: 36px;
-  }
-  .steps-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .step-card {
-    text-align: center;
-    padding: 20px;
-  }
-  .step-number {
-    background-color: #1B3A5C;
-    color: white;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 14px;
-    font-weight: bold;
-  }
-  .step-card h4 {
-    color: #1B3A5C;
-    margin-bottom: 8px;
-    font-size: 16px;
-  }
-  .step-card p {
-    color: #666;
-    font-size: 14px;
-  }
+Comment ça marche
+1
+On discute de votre besoin
+Un premier échange gratuit pour comprendre votre activité et ce qui vous ferait gagner du temps ou des clients.
 
-  .portfolio {
-    padding: 60px 40px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  .portfolio-card {
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 24px;
-  }
-  .portfolio-card .tag {
-    display: inline-block;
-    background-color: #EAF1F8;
-    color: #1B3A5C;
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-bottom: 10px;
-  }
-  .portfolio-card h4 {
-    color: #1B3A5C;
-    margin-bottom: 8px;
-    font-size: 16px;
-  }
-  .portfolio-card p {
-    color: #666;
-    font-size: 14px;
-  }
+2
+Je vous propose une solution
+Contenu, site web ou automatisation : je vous montre concrètement ce que je peux réaliser pour vous.
 
-  .about {
-    background-color: #F0F4F8;
-    padding: 60px 40px;
-    text-align: center;
-  }
-  .about p {
-    max-width: 600px;
-    margin: 0 auto;
-    color: #444;
-    font-size: 15px;
-    line-height: 1.7;
-  }
+3
+Vous recevez votre livrable
+Un résultat concret et utilisable, avec la possibilité d'ajuster jusqu'à ce que ça vous convienne.
 
-  footer {
-    background-color: #1B3A5C;
-    color: white;
-    text-align: center;
-    padding: 24px;
-    font-size: 14px;
-  }
+Exemples de travaux
+Site web
+Smartclean Service
+Site vitrine complet et responsive pour une entreprise de nettoyage à Pointe-Noire : en-tête, accroche, services, contact.
 
-  @media (max-width: 700px) {
-    .services {
-      grid-template-columns: 1fr;
-      padding: 40px 20px;
-    }
-    .hero h1 {
-      font-size: 24px;
-    }
-    .hero {
-      padding: 60px 20px;
-    }
-  }
-</style>
-</head>
-<body>
+Contenu
+Calendrier boutique mode
+Calendrier de contenu Instagram sur 5 jours pour une boutique de vêtements, avec un type de post différent chaque jour.
 
-  <header>
-    <span class="logo">RostandIA</span>
-  </header>
+Galerie de témoignages
+📷
+Photo à venir
+🎥
+Vidéo à venir
+📷
+Photo à venir
+Laissez votre avis
+Vous avez travaillé avec RostandIA ? Partagez votre expérience — votre avis pourra être ajouté à la section témoignages.
 
-  <section class="hero">
-    <h1>Vos idées, transformées en outils concrets grâce à l'IA</h1>
-    <p>Contenu, sites web et automatisation pour les petites entreprises de Pointe-Noire.</p>
-    <button class="btn">Demander un premier échange gratuit</button>
-  </section>
+Votre nom
+Votre entreprise (optionnel)
+Votre avis
 
-  <section class="services">
-    <div class="service-card">
-      <h3>Création de contenu</h3>
-      <p>Posts Instagram/Facebook, calendriers de publication et textes de vente pensés pour donner envie d'acheter, sans y passer vos soirées.</p>
-    </div>
-    <div class="service-card">
-      <h3>Création de sites web</h3>
-      <p>Un site simple et moderne qui présente votre activité, vos services et vos coordonnées, accessible depuis un ordinateur comme un téléphone.</p>
-    </div>
-    <div class="service-card">
-      <h3>Automatisation</h3>
-      <p>Des petits outils qui calculent, trient ou répondent automatiquement à votre place, pour vous faire gagner un temps précieux chaque semaine.</p>
-    </div>
-  </section>
+Envoyer mon avis
+À propos
+Je me suis formé à l'utilisation professionnelle de l'intelligence artificielle pour aider les petites entreprises de Pointe-Noire à gagner du temps et à se rendre visibles en ligne. RostandIA est né de cette envie : rendre ces outils accessibles, sans jargon technique et à un tarif adapté aux réalités locales.
 
-  <section class="steps">
-    <h2>Comment ça marche</h2>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <h4>On discute de votre besoin</h4>
-        <p>Un premier échange gratuit pour comprendre votre activité et ce qui vous ferait gagner du temps ou des clients.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <h4>Je vous propose une solution</h4>
-        <p>Contenu, site web ou automatisation : je vous montre concrètement ce que je peux réaliser pour vous.</p>
-      </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <h4>Vous recevez votre livrable</h4>
-        <p>Un résultat concret et utilisable, avec la possibilité d'ajuster jusqu'à ce que ça vous convienne.</p>
-      </div>
-    </div>
-  </section>
+Contact
+Discutons de votre projet, sans engagement.
 
-  <section class="portfolio">
-    <h2>Exemples de travaux</h2>
-    <div class="portfolio-grid">
-      <div class="portfolio-card">
-        <span class="tag">Site web</span>
-        <h4>Smartclean Service</h4>
-        <p>Site vitrine complet et responsive pour une entreprise de nettoyage à Pointe-Noire : en-tête, accroche, services, contact.</p>
-      </div>
-      <div class="portfolio-card">
-        <span class="tag">Contenu</span>
-        <h4>Calendrier boutique mode</h4>
-        <p>Calendrier de contenu Instagram sur 5 jours pour une boutique de vêtements, avec un type de post différent chaque jour.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="about">
-    <h2>À propos</h2>
-    <p>Je me suis formé à l'utilisation professionnelle de l'intelligence artificielle pour aider les petites entreprises de Pointe-Noire à gagner du temps et à se rendre visibles en ligne. RostandIA est né de cette envie : rendre ces outils accessibles, sans jargon technique et à un tarif adapté aux réalités locales.</p>
-  </section>
-
-  <footer>
-    RostandIA — Pointe-Noire · 065630787 / 044780071
-  </footer>
-
-</body>
-</html>
+📱 WhatsApp
+📞 Appeler
+RostandIA — Pointe-Noire · WhatsApp · Appeler
