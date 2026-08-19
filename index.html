@@ -521,7 +521,7 @@
       <a class="gallery-cta-btn" onclick="document.getElementById('media-form-wrapper').classList.toggle('open')">📤 Envoyer une photo / vidéo</a>
       <div id="media-form-wrapper">
         <div class="review-form-box" style="margin: 24px auto 0;">
-          <form name="galerie" method="POST" data-netlify="true" enctype="multipart/form-data" action="/?merci=galerie">
+          <form name="galerie" method="POST" data-netlify="true" enctype="multipart/form-data">
             <input type="hidden" name="form-name" value="galerie" />
             <div class="form-group">
               <label for="nom-galerie">Votre nom</label>
@@ -546,7 +546,7 @@
     <h2 class="section-title">Laissez votre avis</h2>
     <div class="review-form-box">
       <p class="intro">Vous avez travaillé avec RostandIA ? Partagez votre expérience — votre avis pourra être ajouté à la section témoignages.</p>
-      <form name="avis" method="POST" data-netlify="true" action="/?merci=avis">
+      <form name="avis" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="avis" />
         <div class="form-group">
           <label for="nom">Votre nom</label>
