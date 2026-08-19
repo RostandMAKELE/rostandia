@@ -219,34 +219,98 @@
     line-height: 1.7;
   }
 
-  /* GALLERY */
-  .gallery {
+  /* GALLERY SHOWCASE */
+  .gallery-section {
     padding: 70px 40px;
     max-width: 1100px;
     margin: 0 auto;
   }
-  .gallery-grid {
+  .gallery-showcase {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    margin-bottom: 32px;
   }
-  .gallery-item {
-    background-color: #F0F4F8;
+  .gallery-card {
     border-radius: 12px;
-    aspect-ratio: 1;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    position: relative;
+    background: linear-gradient(145deg, #1B3A5C, #2E5C8A);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: #99a7b5;
-    font-size: 13px;
-    text-align: center;
-    padding: 16px;
-    border: 1.5px dashed #C7D3DE;
+    align-items: flex-end;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
-  .gallery-item .icon {
-    font-size: 28px;
-    margin-bottom: 8px;
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(27, 58, 92, 0.2);
+  }
+  .gallery-card .media-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    opacity: 0.35;
+  }
+  .gallery-card .caption {
+    position: relative;
+    width: 100%;
+    background: rgba(0,0,0,0.35);
+    color: white;
+    font-size: 12px;
+    padding: 10px 12px;
+  }
+  .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .gallery-card video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .gallery-cta {
+    text-align: center;
+    border-top: 1px solid #eee;
+    padding-top: 28px;
+  }
+  .gallery-cta p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 14px;
+  }
+  .gallery-cta-btn {
+    display: inline-block;
+    background: white;
+    border: 1.5px solid #1B3A5C;
+    color: #1B3A5C;
+    padding: 11px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 13px;
+    transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
+  }
+  .gallery-cta-btn:hover {
+    background-color: #1B3A5C;
+    color: white;
+  }
+
+  /* Formulaire média : masqué par défaut, affiché au clic sur le CTA */
+  #media-form-wrapper {
+    display: none;
+    margin-top: 28px;
+  }
+  #media-form-wrapper.open {
+    display: block;
   }
 
   /* REVIEW FORM */
@@ -372,6 +436,10 @@
 </head>
 <body>
 
+  <div id="merci-banner" style="display:none; background-color:#4CAF7D; color:white; text-align:center; padding:14px; font-size:14px;">
+    ✅ Merci ! Votre envoi a bien été reçu.
+  </div>
+
   <nav>
     <span class="logo">RostandIA</span>
     <ul class="nav-links">
@@ -443,20 +511,33 @@
     </div>
   </section>
 
-  <section class="gallery" id="galerie">
-    <h2 class="section-title">Galerie de témoignages</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <div class="icon">📷</div>
-        Photo à venir
-      </div>
-      <div class="gallery-item">
-        <div class="icon">🎥</div>
-        Vidéo à venir
-      </div>
-      <div class="gallery-item">
-        <div class="icon">📷</div>
-        Photo à venir
+  <section class="gallery-section" id="galerie">
+    <h2 class="section-title">Galerie</h2>
+    <div class="gallery-showcase" id="gallery-showcase">
+      <!-- Les cartes sont générées automatiquement à partir de la liste GALLERY_ITEMS plus bas -->
+    </div>
+    <div class="gallery-cta">
+      <p>Vous avez travaillé avec RostandIA ? Partagez une photo ou une vidéo de votre projet.</p>
+      <a class="gallery-cta-btn" onclick="document.getElementById('media-form-wrapper').classList.toggle('open')">📤 Envoyer une photo / vidéo</a>
+      <div id="media-form-wrapper">
+        <div class="review-form-box" style="margin: 24px auto 0;">
+          <form name="galerie" method="POST" data-netlify="true" enctype="multipart/form-data" action="/?merci=galerie">
+            <input type="hidden" name="form-name" value="galerie" />
+            <div class="form-group">
+              <label for="nom-galerie">Votre nom</label>
+              <input type="text" id="nom-galerie" name="nom" required>
+            </div>
+            <div class="form-group">
+              <label for="fichier">Photo ou vidéo</label>
+              <input type="file" id="fichier" name="fichier" accept="image/*,video/*" required>
+            </div>
+            <div class="form-group">
+              <label for="legende">Petite légende (optionnel)</label>
+              <input type="text" id="legende" name="legende" placeholder="Ex : mon nouveau site créé avec RostandIA">
+            </div>
+            <button type="submit" class="submit-btn">Envoyer</button>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -465,7 +546,7 @@
     <h2 class="section-title">Laissez votre avis</h2>
     <div class="review-form-box">
       <p class="intro">Vous avez travaillé avec RostandIA ? Partagez votre expérience — votre avis pourra être ajouté à la section témoignages.</p>
-      <form name="avis" method="POST" data-netlify="true">
+      <form name="avis" method="POST" data-netlify="true" action="/?merci=avis">
         <input type="hidden" name="form-name" value="avis" />
         <div class="form-group">
           <label for="nom">Votre nom</label>
@@ -501,6 +582,45 @@
   <footer>
     RostandIA — Pointe-Noire · <a href="https://wa.me/242065630787" target="_blank">WhatsApp</a> · <a href="tel:+242044780071">Appeler</a>
   </footer>
+
+  <script>
+    /* ============================================================
+       👉 TA LISTE DE PHOTOS/VIDÉOS VALIDÉES 👈
+       Pour ajouter un élément après validation d'un envoi :
+       1. Mets le fichier image/vidéo dans le dossier "images" sur GitHub
+       2. Ajoute une ligne ici avec : type, src (nom du fichier), caption
+       3. Commit — la galerie se met à jour automatiquement, rien d'autre à faire.
+       ============================================================ */
+    const GALLERY_ITEMS = [
+      { type: "placeholder", icon: "🖼️", caption: "Site vitrine — Smartclean Service" },
+      { type: "placeholder", icon: "🎬", caption: "Vidéo témoignage — à venir" },
+      { type: "placeholder", icon: "🖼️", caption: "Calendrier de contenu — Boutique mode" },
+
+      // Exemple à copier une fois que tu as une vraie photo validée (retire les // devant) :
+      // { type: "image", src: "images/photo1.jpg", caption: "Site créé pour la boutique X" },
+      // { type: "video", src: "images/video1.mp4", caption: "Retour client Y" },
+    ];
+
+    const container = document.getElementById("gallery-showcase");
+    GALLERY_ITEMS.forEach((item) => {
+      const card = document.createElement("div");
+      card.className = "gallery-card";
+
+      if (item.type === "image") {
+        card.innerHTML = `<img src="${item.src}" alt="${item.caption}"><div class="caption" style="position:absolute; bottom:0; width:100%;">${item.caption}</div>`;
+      } else if (item.type === "video") {
+        card.innerHTML = `<video src="${item.src}" muted loop autoplay playsinline></video><div class="caption" style="position:absolute; bottom:0; width:100%;">${item.caption}</div>`;
+      } else {
+        card.innerHTML = `<div class="media-icon">${item.icon}</div><div class="caption">${item.caption}</div>`;
+      }
+      container.appendChild(card);
+    });
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("merci")) {
+      document.getElementById("merci-banner").style.display = "block";
+    }
+  </script>
 
 </body>
 </html>
